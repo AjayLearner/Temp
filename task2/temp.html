@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box{
+        width: 350px;
+        height: 200px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;        
+        background-color: cyan;
+    }
+    .same{
+        display: flex;
+        flex-direction:row;
+        justify-content: space-around;
+    }
+    #from{
+        margin-top: 25px;
+    }
+    #to{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #sec{
+        margin-left: 15px;
+    }
+    h2{
+        text-align: center;
+        margin-top: 15px;
+    }
+    #btn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #out{
+        border: 1px solid black;
+        width: 163px;
+        background-color: white;
+        border-radius: 5px;
+    }
+    button{
+        margin-top: 10px;
+        padding: 7px 14px;
+        border-radius: 10px;
+        background-color: white;
+        border: none;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;   
+     }
+     button:hover{
+        background-color: red;
+        color: white;
+     }
+     input{
+        border: 1px solid black;
+        border-radius: 5px;
+     }
+        
+</style>
+<body>
+    <div class="box">
+        <h2>Temperature Converter</h2>
+        <div id="from" class="same">
+            <label for="input">From:</label>
+            <select name="" id="fir">
+                <option value="Celcius">Celcius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            <input type="number"  id="input">
+        </div>
+        <div id="to" class="same">
+            <label for="out">To:</label>
+            <select name="" id="sec">
+                <option value="Celcius">Celcius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            </select>
+            <div id="out"></div>
+        </div>
+        <div id="btn">
+        <button >Calculate</button>
+    </div>
+    </div>
+</body>
+<script>
+    document.querySelector("button").addEventListener("click",()=>{
+        let from=document.querySelector("#fir").value
+        let to=document.querySelector("#sec").value
+        let input=document.querySelector("#input").value
+        let output=document.querySelector("#out")
+        
+        if(from=="Celsius" && to=="Celsius"){
+            output.innerText=input
+        }
+        else if(from=="Celsius" && to=="Fahrenheit"){
+            output.innerHTML=(input*1.8)+32
+        }
+        else if(from=="Celsius" && to=="Kelvin"){
+            output.inneHTinnerHTMLt=input+273.15
+        }
+        else if(from=="Fahrenheit" && to=="Celsius"){
+            output.innerHTML=(input-32)*5/9
+        }
+        else if(from=="Fahrenheit" && to=="Fahrenheit"){
+            output.inneHTinnerHTML=input
+        }
+        else if(from=="Fahrenheit" && to=="Kelvin"){
+            output.innerHTML=(input-32)*(5/9)+273.15
+        }
+        else if(from=="Kelvin" && to=="Celsius"){
+            output.innerHTML=input-273.15
+        }
+        else if(from=="Kelvin" && to=="Fahrenheit"){
+            output.innerHTML=(input-273.15)*(9/5)+32
+        }
+        else if(from=="Kelvin" && to=="Kelvin"){
+            output.innerHTML=input
+        }
+    })
+</script>
+</html>
